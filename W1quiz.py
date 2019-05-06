@@ -36,6 +36,11 @@ def readcurrency(filename):
             dict1 = {"symbol": list1[0], "rate:": list1[1]}
             #print (dict1)
             list_answer.append(dict1)
-    print (list_answer)         
+    return (list_answer)         
 
 readcurrency("currency.txt")
+
+
+def save(filename, data):
+    import json
+    data = {}
