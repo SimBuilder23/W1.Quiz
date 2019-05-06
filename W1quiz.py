@@ -29,18 +29,28 @@
 
 
 def readcurrency(filename):
-    list_answer = []
+    data = []
     with open(filename) as f_obj:
         for line in f_obj:
             list1 = line.split()
             dict1 = {"symbol": list1[0], "rate:": list1[1]}
             #print (dict1)
-            list_answer.append(dict1)
-    return (list_answer)         
+            data.append(dict1)
+    #print (data)
+    return (data)     
 
-readcurrency("currency.txt")
+readcurrency ("currency.txt")
 
 
 def save(filename, data):
     import json
-    data = {}
+    
+    list2 = readcurrency(filename)
+    dict2 = {"data": list2}
+        
+    with open (filename.json, "w") as write_file_object:
+        json.dump(dict2, write_file_object, indent = 5)
+
+# save ("currency.txt", readcurrency)
+
+
